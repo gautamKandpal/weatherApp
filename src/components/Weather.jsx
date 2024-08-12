@@ -10,7 +10,8 @@ import snowIcon from "../Assets/snow.png";
 import windIcon from "../Assets/wind.png";
 
 function Weather() {
-  //   const apiKey = process.env.REACT_APP_API_KEY;
+  const apiKey = process.env.REACT_APP_API_KEY;
+  console.log(apiKey);
   const [weatherData, setWeatherData] = useState(false);
 
   const allIcons = {
@@ -38,8 +39,8 @@ function Weather() {
       return;
     }
     try {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=f0596009edf904528de2eebe08de1f29`;
-      //   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+      //   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=f0596009edf904528de2eebe08de1f29`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
       const response = await fetch(url);
       const data = await response.json();
